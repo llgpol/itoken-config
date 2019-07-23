@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: itoken-config
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/llgpol/itoken-github-config.git
+          search-paths: respo
+          username: llgpol
+          password: llg0.123
+  zipkin:
+    base-url: http://192.168.242.132:9411
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
