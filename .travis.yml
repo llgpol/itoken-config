@@ -14,4 +14,9 @@ notifications:
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_c3d6e22dd349_key -iv $encrypted_c3d6e22dd349_iv
-    -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+    -in id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+
+after_success:
+  - ssh root@192.168.242.132 -o stricthostkeychecking=no -i ~/.ssh/id_rsa 'cd
+    /usr/local/docker/itoken-config/ && git pull'
