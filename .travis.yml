@@ -11,3 +11,7 @@ notifications:
       - 771902944@qq.com
     on_success: never
     on_failure: always
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_c3d6e22dd349_key -iv $encrypted_c3d6e22dd349_iv
+    -in id_rsa.enc -out ~\/.ssh/id_rsa -d
