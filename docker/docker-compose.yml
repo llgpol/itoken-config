@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+        itoken-config:
+                image: 192.168.242.131:5000/itoken-config
+                restart: always
+                container_name: itoken-config
+                ports:
+                        - 8888:8888
+                networks:
+                        - my-network-name
+networks:
+        my-network-name:
+                name: config
